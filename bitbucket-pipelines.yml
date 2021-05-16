@@ -8,7 +8,7 @@ pipelines:
   default:
     
     - step:
-        name: Build
+        name: 'Build'
         script:
           - git archive --format=tar.gz master -o sample-app.tar.gz
         artifacts: 
@@ -17,7 +17,7 @@ pipelines:
     # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
     
     - step:
-        name: Deployment to Production
+        name: 'Deployment'
         deployment: production
         trigger: 'manual'
         caches: 
