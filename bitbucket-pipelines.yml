@@ -10,7 +10,7 @@ pipelines:
     - step:
         name: 'Build'
         script:
-          - git archive --format=tar.gz master -o sample-app.tar.gz
+          - git archive master --format=tar.gz --output=sample-app.tar.gz
         artifacts: 
           - sample-app.tar.gz
 
