@@ -6,18 +6,18 @@ image: python 3.8
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: 'Build and Test'
-          script:
-            - git archive --format=tar.gz master -o sample-app.tar.gz
-          artifacts: 
-            - sample-app.tar.gz
+    
+    - step:
+        name: Build
+        script:
+          - git archive --format=tar.gz master -o sample-app.tar.gz
+        artifacts: 
+          - sample-app.tar.gz
 
     # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
     
     - step:
-        name: 'Deployment to Production'
+        name: Deployment to Production
         deployment: production
         trigger: 'manual'
         caches: 
