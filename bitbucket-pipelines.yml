@@ -10,6 +10,8 @@ pipelines:
     - step:
         name: 'Build'
         script:
+          - apt-get -y update
+          - apt-get -y install git
           - git archive master --format=tar.gz --output=sample-app.tar.gz
         artifacts: 
           - sample-app.tar.gz
