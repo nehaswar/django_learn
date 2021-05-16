@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>Petrol</title>
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          padding: 50px;
+        }
+        #space {
+          width: 80%;
+          padding: 50px;
+          border-radius: 25px;
+          text-transform: uppercase;
+          font-size: 40px;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: lightblue;
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #4CAF50;
+          color: white;
+        }
+        </style>
+</head>
+
+<body>
+  <p id="space" >
+    Average Sale each country
+  </p>
+    <table id="customers">
+        <thead>
+            <tr>
+            <th>S.No</th>
+
+            <th>Country</th>
+            <th>Product</th>
+            <th>Avg</th>
+            </tr>
+        </thead>
+        {% for data in question1 %}
+        
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{data.country}}</td>
+            <td>{{data.petroleum_product}}</td>
+            <td>{{data.total_sales}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p id="space" >
+      Least Sale 
+    </p>
+    <table id="customers">
+        <thead>
+            <tr>
+            <th>S.No</th>
+
+            <th>Year</th>
+            <th>Product</th>
+            <th>Least amount</th>
+            </tr>
+        </thead>
+        {% for data in question_3 %}
+        
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{data.year}}</td>
+            <td>{{data.petroleum_product}}</td>
+            <td>{{data.least_sale}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p id="space" >Average Sales for two years</p>
+    <table id="customers">
+        <thead>
+            <tr>
+            <th>S.No</th>
+
+            <th>Years</th>
+            <th>Product</th>
+            <th>Average Amount</th>
+            </tr>
+        </thead>
+        {% for data in question_2 %}
+        
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{data.year1}}-{{data.year2}}</td>
+            <td>{{data.petroleum_product}}</td>
+            <td>{{data.sales}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+</body></html>
